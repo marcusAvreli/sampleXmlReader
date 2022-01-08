@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE databaseQueryTemplate PUBLIC "databaseQueryTemplate.dtd" "databaseQueryTemplate.dtd">
+<databaseQueryTemplate>
+<entityName name="ReportStoredProcedure">
+<action name="Insert">
+<queryTemplate query="sssd"/>
+</action>
+</entityName>
+
+</databaseQueryTemplate>
