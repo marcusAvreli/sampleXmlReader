@@ -20,7 +20,13 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
@@ -37,7 +43,7 @@ public class XmlParser {
 
 	String inputFilePathName;
 	String outputFilePathName;
-	
+
 	Document subjectDocument;
 
 	private static final Logger logger = LoggerFactory.getLogger(XmlParser.class);
@@ -59,7 +65,7 @@ public class XmlParser {
 
 	public void createDocument() {
 		String sourceFile = getInputFilePathName();
-		logger.info("SourceFile:"+sourceFile);
+		logger.info("SourceFile:" + sourceFile);
 		Document document = null;
 		try {
 
@@ -71,47 +77,65 @@ public class XmlParser {
 			document = buidler.parse(is);
 			logger.info("document");
 			setSubjectDocument(document);
-			
 
 		} catch (SAXException | IOException e) {
 			// TODO Auto-generated catch block
 			logger.error("Error during loading document", e);
-		}		
+		}
 	}
-	/*public  void writeToXml() {
-		Document documentToWrite = getSubjectDocument();
-		if(null !=documentToWrite) {
-		TransformerFactory transformerFactory = TransformerFactory.newInstance();		
-		documentToWrite.setXmlStandalone(true);
-		Source xslDoc = new StreamSource("./resources/stylesheet.xsl");
-		Transformer transformer;
+	/*
+	 * public void writeToXml() { Document documentToWrite = getSubjectDocument();
+	 * if(null !=documentToWrite) { TransformerFactory transformerFactory =
+	 * TransformerFactory.newInstance(); documentToWrite.setXmlStandalone(true);
+	 * Source xslDoc = new StreamSource("./resources/stylesheet.xsl"); Transformer
+	 * transformer; try { transformer = transformerFactory.newTransformer(xslDoc);
+	 * DOMSource source = new DOMSource(documentToWrite); String outputName =
+	 * getOutputFilePathName(); logger.info("outputName:"+outputName); File
+	 * directory = new File(outputName); if (!directory.exists()) {
+	 * directory.mkdirs(); } StreamResult result = new StreamResult(new
+	 * File("./resources/"+outputName)); transformer.transform(source, result); }
+	 * catch (TransformerException e) { // TODO Auto-generated catch block
+	 * e.printStackTrace(); } }else { logger.info("subject document is null"); }
+	 * 
+	 * }
+	 */
+
+	public String getQuery(String queryString) {
+		String resultQuery = null;
+		Document document = getSubjectDocument();
+
+		XPath xPath = XPathFactory.newInstance().newXPath();
+
 		try {
-			transformer = transformerFactory.newTransformer(xslDoc);
-			DOMSource source = new DOMSource(documentToWrite);
-			String outputName = getOutputFilePathName();
-			logger.info("outputName:"+outputName);
-			File directory = new File(outputName);
-			if (!directory.exists()) {
-				directory.mkdirs();
+
+			NodeList nodes = (NodeList) xPath.evaluate(queryString, document, XPathConstants.NODESET);
+			if (null != nodes && nodes.getLength() > 0) {
+				logger.info("START:" + nodes.getLength());
+				for (int i = 0; i < nodes.getLength(); i++) {
+					Element e = (Element) nodes.item(i);
+					// String textContent = e.getTextContent();
+					resultQuery = e.getAttribute("query");
+					logger.info("ResultQuery:"+resultQuery);
+				}
+				logger.info("got something");
+			} else {
+				logger.info("NothingFound");
 			}
-			StreamResult result = new StreamResult(new File("./resources/"+outputName));
-			transformer.transform(source, result);
-		} catch (TransformerException e) {
+		} catch (XPathExpressionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		}else {
-			logger.info("subject document is null");
-		}
 
-	}*/
-	
+		// setSubjectDocument(document);
+		return resultQuery;
+	}
+
 	public void writeToXml() {
 		Document documentToWrite = getSubjectDocument();
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
-        Transformer transformer;
-        try {
+		Transformer transformer;
+		try {
 			transformer = transformerFactory.newTransformer();
 
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -130,15 +154,13 @@ public class XmlParser {
 			StreamResult result = new StreamResult(new File("./resources/" + outputName));
 			transformer.transform(source, result);
 
-        } catch (TransformerException e) {
+		} catch (TransformerException e) {
 			// TODO Auto-generated catch block
-			logger.error("writeToXml",e);
+			logger.error("writeToXml", e);
 			e.printStackTrace();
-        }
-        
+		}
 
-}
-
+	}
 
 	public String getOutputFilePathName() {
 		return outputFilePathName;

@@ -22,6 +22,7 @@ public class App {
 		xmlParser.setInputFilePathName("./resources/input.xml");
 		xmlParser.createDocument();
 		xmlParser.setOutputFilePathName("output.xml");
+		xmlParser.getQuery("/databaseQueryTemplate/entityName[@name=\"ReportStoredProcedure\"]/action[@name=\"Insert\"]/queryTemplate");
 		xmlParser.writeToXml();
 		logger.info("APP_FINISHED");
 	}

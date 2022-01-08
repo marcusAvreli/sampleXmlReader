@@ -67,3 +67,36 @@ java.io.FileNotFoundException: C:\Users\user\eclipse-workspace\sampleXmlReader\d
 2022-01-08 12:46:08.313 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:62)] - SourceFile:./resources/input.xml
 2022-01-08 12:46:08.332 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:72)] - document
 2022-01-08 12:46:08.358 INFO [main] [sampleXmlReader.App.main(App.java:26)] - APP_FINISHED
+2022-01-08 12:56:57.344 INFO [main] [sampleXmlReader.App.main(App.java:20)] - APP_STARTED
+2022-01-08 12:56:57.347 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:68)] - SourceFile:./resources/input.xml
+2022-01-08 12:56:57.367 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:78)] - document
+2022-01-08 12:56:57.380 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:113)] - START:1
+2022-01-08 12:56:57.380 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:120)] - got something
+2022-01-08 12:56:57.404 INFO [main] [sampleXmlReader.App.main(App.java:27)] - APP_FINISHED
+2022-01-08 12:58:36.760 INFO [main] [sampleXmlReader.App.main(App.java:20)] - APP_STARTED
+2022-01-08 12:58:36.765 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:68)] - SourceFile:./resources/input.xml
+2022-01-08 12:58:36.784 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:78)] - document
+2022-01-08 12:58:36.797 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:113)] - START:1
+2022-01-08 12:58:36.797 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:120)] - got something
+2022-01-08 12:58:36.819 INFO [main] [sampleXmlReader.App.main(App.java:27)] - APP_FINISHED
+2022-01-08 12:59:14.085 INFO [main] [sampleXmlReader.App.main(App.java:20)] - APP_STARTED
+2022-01-08 12:59:14.089 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:68)] - SourceFile:./resources/input.xml
+2022-01-08 12:59:14.108 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:78)] - document
+2022-01-08 12:59:14.119 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:113)] - START:1
+2022-01-08 12:59:14.119 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:118)] - ResultQuery:
+2022-01-08 12:59:14.120 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:120)] - got something
+2022-01-08 12:59:14.148 INFO [main] [sampleXmlReader.App.main(App.java:27)] - APP_FINISHED
+2022-01-08 12:59:54.755 INFO [main] [sampleXmlReader.App.main(App.java:20)] - APP_STARTED
+2022-01-08 12:59:54.759 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:68)] - SourceFile:./resources/input.xml
+2022-01-08 12:59:54.780 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:78)] - document
+2022-01-08 12:59:54.791 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:113)] - START:1
+2022-01-08 12:59:54.792 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:118)] - ResultQuery:sssd
+2022-01-08 12:59:54.792 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:120)] - got something
+2022-01-08 12:59:54.815 INFO [main] [sampleXmlReader.App.main(App.java:27)] - APP_FINISHED
+2022-01-08 13:00:35.206 INFO [main] [sampleXmlReader.App.main(App.java:20)] - APP_STARTED
+2022-01-08 13:00:35.210 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:68)] - SourceFile:./resources/input.xml
+2022-01-08 13:00:35.231 INFO [main] [sampleXmlReader.XmlParser.createDocument(XmlParser.java:78)] - document
+2022-01-08 13:00:35.242 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:113)] - START:1
+2022-01-08 13:00:35.242 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:118)] - ResultQuery:insert into report_sp
+2022-01-08 13:00:35.242 INFO [main] [sampleXmlReader.XmlParser.getQuery(XmlParser.java:120)] - got something
+2022-01-08 13:00:35.267 INFO [main] [sampleXmlReader.App.main(App.java:27)] - APP_FINISHED

@@ -3,7 +3,7 @@
 <databaseQueryTemplate>
 <entityName name="ReportStoredProcedure">
 <action name="Insert">
-<queryTemplate query="sssd"/>
+<queryTemplate query="insert into report_sp"/>
 </action>
 </entityName>
 
